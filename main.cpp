@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
 {
     /* Start app */
     QApplication a(argc, argv);
-    mainWindow w;
+    MainWindow w;
     w.showMaximized();
     return a.exec();
 }
