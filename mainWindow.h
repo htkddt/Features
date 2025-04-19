@@ -10,4 +10,10 @@ class mainWindow : public QMainWindow
 public:
     mainWindow(QWidget *parent = nullptr);
     ~mainWindow();
+
+//slots:
+
+//private:
+
+//signals:
 };
