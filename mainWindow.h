@@ -1,5 +1,26 @@
 #include <QtWidgets/QMainWindow>
 
+#include <QLayout>
+#include <QGroupBox>
+
+#include <QCloseEvent>
+
+#include <QMessageBox>
+#include <QDialog>
+#include <QDir>
+
+#include <QPushButton>
+#include <QTextEdit>
+#include <QLabel>
+#include <QSlider>
+
+#include <QVideoWidget>
+#include <QMediaPlayer>
+#include <QAudioInput>
+#include <QAudioOutput>
+
+#include <QProcess>
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -7,11 +28,27 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void loadVideoTemplates(const QString& videoFolder, const QString& thumbFolder, QGroupBox* groupBox);
+    void generateThumbnail(const QString& videoPath, const QString& outputPath);
 
-//slots:
+public slots:
+    void setSliderPosition(int position);
+    void updateMediaPosition(int position);
+    void updateMediaDuration(int duration);
 
-//private:
+private:
+    QTextEdit* contents = nullptr;
+    QPushButton* btnPlay = nullptr;
+    QPushButton* btnStop = nullptr;
+    QPushButton* btnSave = nullptr;
 
-//signals:
+    QSlider* slider = nullptr;
+    QMediaPlayer* player = nullptr;
 
+    QString ffmpegPath = "D:/A_TerraLogic_Project/TTSApplication/ffmpeg/bin/ffmpeg.exe";
+    QString videoFolderPath = "D:/A_TerraLogic_Project/TTSApplication/VideoTemplates/Defaults";
+    QString thumbFolderPath = "D:/A_TerraLogic_Project/TTSApplication/ImageThumb";
+
+protected:
+    void closeEvent(QCloseEvent* event) override;
 };
