@@ -124,7 +124,7 @@ void MainWindow::loadVideoTemplates(const QString& videoFolder, const QString& t
         QFile::remove(fileInfo.absoluteFilePath());
     }
 
-    //thumbDir.rmpath(thumbFolder);
+    if (thumbDir.rmdir(thumbFolder)) qDebug() << "Remove";
 }
 
 void MainWindow::setSliderPosition(int position) 
