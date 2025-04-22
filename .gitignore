@@ -33,3 +33,6 @@ cmake_install.cmake
 *.autosave
 *.ipch
 *.tlog
+
+# Tool video process
+ffmpeg/
