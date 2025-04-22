@@ -1,0 +1,35 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.VC.db
+*.VC.VC.opendb
+
+# Build output
+Debug/
+Release/
+x64/
+*.obj
+*.pdb
+*.exe
+*.dll
+*.lib
+*.log
+
+# Qt generated files
+*.pro.user
+*.qmake.stash
+Makefile*
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+
+# CMake (nếu có)
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Misc
+*.autosave
+*.ipch
+*.tlog
