@@ -3,7 +3,6 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    /* Init project sucessfully */
     setWindowTitle("Text-To-Speech");
 
     auto centralWidget = new QWidget();

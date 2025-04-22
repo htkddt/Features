@@ -41,7 +41,6 @@ private:
     QPushButton* btnPlay = nullptr;
     QPushButton* btnStop = nullptr;
     QPushButton* btnSave = nullptr;
-
     QSlider* slider = nullptr;
     QMediaPlayer* player = nullptr;
 
