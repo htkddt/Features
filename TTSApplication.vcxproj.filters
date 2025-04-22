@@ -19,13 +19,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="mainWindow.qrc">
+    <QtRcc Include="mainwindow.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-    <QtMoc Include="mainWindow.h">
+    <QtMoc Include="mainwindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClCompile Include="mainWindow.cpp">
+    <ClCompile Include="mainwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
