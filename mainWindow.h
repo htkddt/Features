@@ -45,9 +45,9 @@ private:
     QSlider* slider = nullptr;
     QMediaPlayer* player = nullptr;
 
-    QString ffmpegPath = "D:/A_TerraLogic_Project/TTSApplication/ffmpeg/bin/ffmpeg.exe";
-    QString videoFolderPath = "D:/A_TerraLogic_Project/TTSApplication/VideoTemplates/Defaults";
-    QString thumbFolderPath = "D:/A_TerraLogic_Project/TTSApplication/ImageThumb";
+    QString ffmpegPath = "./ffmpeg/bin/ffmpeg.exe";
+    QString videoFolderPath = "./VideoTemplates/Defaults";
+    QString thumbFolderPath = "./ImageTempFolder";
 
 protected:
     void closeEvent(QCloseEvent* event) override;
