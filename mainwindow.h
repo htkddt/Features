@@ -45,8 +45,8 @@ private:
     QMediaPlayer* player = nullptr;
 
     QString ffmpegPath = "./ffmpeg/bin/ffmpeg.exe";
-    QString videoFolderPath = "./VideoTemplates/Defaults";
-    QString thumbFolderPath = "./ImageTempFolder";
+    QString videoFolderPath = "./VideoTemplates";
+    QString thumbFolderPath = "./temp";
 
 protected:
     void closeEvent(QCloseEvent* event) override;

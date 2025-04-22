@@ -94,10 +94,7 @@ void MainWindow::loadVideoTemplates(const QString& videoFolder, const QString& t
 {
     QDir videoDir(videoFolder);
     QDir thumbDir(thumbFolder);
-    if (!thumbDir.exists()) {
-        qDebug() << "thumbDir.exists()";
-        thumbDir.mkdir(".");
-    }
+    if (!thumbDir.exists()) thumbDir.mkpath(thumbFolder);
 
     QStringList filters;
     filters << "*.mp4";
@@ -126,6 +123,8 @@ void MainWindow::loadVideoTemplates(const QString& videoFolder, const QString& t
     for (const QFileInfo& fileInfo : thumbDir.entryInfoList(QDir::Files)) {
         QFile::remove(fileInfo.absoluteFilePath());
     }
+
+    //thumbDir.rmpath(thumbFolder);
 }
 
 void MainWindow::setSliderPosition(int position) 
