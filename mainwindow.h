@@ -46,7 +46,7 @@ private:
     QMediaPlayer* player = nullptr;
 
     QString ffmpegPath = "./ffmpeg/bin/ffmpeg.exe";
-    QString videoFolderPath = "./VideoTemplates";
+    QString videoFolderPath = "./videos";
     QString thumbFolderPath = "./temp";
 
     QListWidget* supportedFeatures;
