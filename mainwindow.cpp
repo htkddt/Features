@@ -29,12 +29,56 @@ MainWindow::MainWindow(QWidget *parent)
 
     auto grContents = new QGroupBox("Contents");
     grContents->setFont(font);
-    auto layoutContents = new QVBoxLayout(grContents);
+    auto layoutContents = new QHBoxLayout(grContents);
     contents = new QTextEdit(this);
     font.setBold(false);
     contents->setFont(font);
     layoutContents->addWidget(contents);
     grContents->setLayout(layoutContents);
+
+    auto layoutButton = new QVBoxLayout(grContents);
+    layoutButton->setAlignment(Qt::AlignVCenter);
+    auto add = new QPushButton(">>");
+    connect(add, &QPushButton::clicked, this, [this]() {
+        auto items = supportedFeatures->selectedItems();
+        for (auto* item : items) {
+            supportedFeatures->takeItem(supportedFeatures->row(item));
+            pinnedFeatures->addItem(item);
+        }
+    });
+    auto del = new QPushButton("<<");
+    connect(del, &QPushButton::clicked, this, [this]() {
+        auto items = pinnedFeatures->selectedItems();
+        for (auto* item : items) {
+            pinnedFeatures->takeItem(pinnedFeatures->row(item));
+            supportedFeatures->addItem(item);
+        }
+    });
+    layoutButton->addWidget(add);
+    layoutButton->addSpacing(10);
+    layoutButton->addWidget(del);
+
+    supportedFeatures = new QListWidget;
+    pinnedFeatures = new QListWidget;
+
+    supportedFeatures->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    supportedFeatures->setFont(font);
+    pinnedFeatures->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    pinnedFeatures->setFont(font);
+
+    QString text;
+    for (int i = 1; i < 51; i++) {
+        text = "Feature " + QString::number(i);
+        QListWidgetItem* item = new QListWidgetItem(QIcon("nsicon.png"), text);
+        supportedFeatures->addItem(item);
+    }
+
+    layoutContents->addSpacing(15);
+    layoutContents->addWidget(supportedFeatures);
+    layoutContents->addSpacing(15);
+    layoutContents->addLayout(layoutButton);
+    layoutContents->addSpacing(15);
+    layoutContents->addWidget(pinnedFeatures);
 
     slider = new QSlider(Qt::Horizontal);
     connect(slider, &QSlider::sliderMoved, this, &MainWindow::setSliderPosition);
@@ -56,6 +100,8 @@ MainWindow::MainWindow(QWidget *parent)
     auto mainLayout = new QHBoxLayout();
     mainLayout->addLayout(leftLayout);
     mainLayout->addLayout(rightLayout);
+    //mainLayout->addWidget(grSupportedFeatures);
+    //mainLayout->addWidget(grPinnedFeatures);
     centralWidget->setLayout(mainLayout);
 }
 

@@ -1,4 +1,5 @@
 #include <QtWidgets/QMainWindow>
+#include <QListWidget>
 
 #include <QLayout>
 #include <QGroupBox>
@@ -47,6 +48,9 @@ private:
     QString ffmpegPath = "./ffmpeg/bin/ffmpeg.exe";
     QString videoFolderPath = "./VideoTemplates";
     QString thumbFolderPath = "./temp";
+
+    QListWidget* supportedFeatures;
+    QListWidget* pinnedFeatures;
 
 protected:
     void closeEvent(QCloseEvent* event) override;
