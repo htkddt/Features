@@ -100,8 +100,6 @@ MainWindow::MainWindow(QWidget *parent)
     auto mainLayout = new QHBoxLayout();
     mainLayout->addLayout(leftLayout);
     mainLayout->addLayout(rightLayout);
-    //mainLayout->addWidget(grSupportedFeatures);
-    //mainLayout->addWidget(grPinnedFeatures);
     centralWidget->setLayout(mainLayout);
 }
 
